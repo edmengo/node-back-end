@@ -5,7 +5,7 @@ const Invite = use('App/Models/Invite')
 
 class UserController {
     async store ({ request, response, auth }) {
-        const data = request.only(['nome', 'email', 'password'])
+        const data = request.only(['name', 'email', 'password'])
 
         const teamsQuery = Invite.query().where('email', data.email)
         const teams = await teamsQuery.pluck('team_id')
